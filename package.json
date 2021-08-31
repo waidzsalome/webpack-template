@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
+    "server": "node server.js",
     "build": "webpack"
   },
   "keywords": [],
@@ -13,10 +14,12 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "express": "^4.17.1",
     "html-webpack-plugin": "^5.3.2",
     "lodash": "^4.17.21",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
+    "webpack-dev-middleware": "^5.0.0",
     "webpack-dev-server": "^4.0.0"
   }
 }
