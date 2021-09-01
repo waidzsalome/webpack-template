@@ -12,9 +12,17 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    // hot: true,
-    hot: false,
-    client: false,
+    hot: true,
+    // hot: false,
+    // client: false,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
