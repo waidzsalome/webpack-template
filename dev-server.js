@@ -33,7 +33,7 @@ const devServerConfig = {
   static: {
     directory: path.join(__dirname, 'dist'),
   },
-  hot: false,
+  hot: true,
   client: false,
 };
 const server = new DevServer(devServerConfig, compiler);
