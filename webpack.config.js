@@ -13,6 +13,14 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
   },
+  module: {
+    rules: [
+      {
+        test: require.resolve('./src/index.js'),
+        use: 'imports-loader?wrapper=window',
+      },
+    ],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'development',
