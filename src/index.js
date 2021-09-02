@@ -1,3 +1,4 @@
+const { file, parse } = require('./global');
 function component() {
   const element = document.createElement('div');
 
@@ -5,7 +6,8 @@ function component() {
   // lodash 在当前 script 中使用 import 引入
   element.innerHTML = join(['Hello', 'webpack'], ' ');
   this.alert('Hmmm, this probably isn\'t a great idea...');
-
+  console.log('file', file);
+  console.log('parse', parse);
   return element;
 }
 
