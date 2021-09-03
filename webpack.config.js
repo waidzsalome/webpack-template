@@ -5,6 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
+    polyfills: './src/polyfill',
     index: './src/index.js',
   },
   devtool: 'inline-source-map',
@@ -36,6 +37,5 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
   }
 }
