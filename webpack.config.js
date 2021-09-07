@@ -12,6 +12,24 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.png/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext][query]',
+        }
+      },
+      {
+        test: /\.html/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext][query]',
+        }
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'development',
