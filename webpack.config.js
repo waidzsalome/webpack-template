@@ -1,25 +1,70 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const MiniCssExtraPlugin = require('mini-css-extract-plugin');
+
+// module.exports = {
+//   mode: 'development',
+//   entry: {
+//     home: ['./src/home.js', './src/home.scss'],
+//     account: ['./src/account.js', './src/account.scss'],
+//   },
+//   // entry: {
+//   //   main: './home.js',
+//   // },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.scss$/,
+//         use: [
+//           process.env.NODE_ENV !== 'production'
+//             ? 'style-loader'
+//             : MiniCssExtraPlugin.loader,
+//           'css-loader',
+//           'sass-loader',
+//         ]
+//       }
+//     ]
+//   },
+//   plugins: [
+//     new MiniCssExtraPlugin({
+//       filename: '[name].css',
+//     })
+//   ],
+//   output: {
+//     filename: '[name].bundle.js',
+//     path: path.resolve(__dirname, 'dist'),
+//     clean: true,
+//   }
+// }
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
-    index: './src/index.js',
+    home: ['./src/home.js', './src/home.scss'],
+    account: ['./src/account.js', './src/account.scss'],
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
-    },
+  output: {
+    filename: '[name].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          // fallback to style-loader in development
+          process.env.NODE_ENV !== 'production'
+            ? 'style-loader'
+            : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'development',
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     }),
   ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    clean: true,
-  }
-}
+};
