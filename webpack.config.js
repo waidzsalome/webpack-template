@@ -28,6 +28,10 @@ module.exports = {
             return svgToMiniDataURI(content);
           }
         }
+      },
+      {
+        test: /\.txt/,
+        type: 'asset/source',
       }
     ]
   },
